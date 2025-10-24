@@ -1,0 +1,21 @@
+{
+  "name": "hog-ai-proxy",
+  "version": "1.0.0",
+  "description": "Прокси-сервер для HOG AI Generator на Vercel",
+  "main": "api/health.js",
+  "scripts": {
+    "test": "echo \"No tests\" && exit 0"
+  },
+  "keywords": [
+    "proxy",
+    "kandinsky",
+    "gigachat",
+    "vercel"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^2.7.0",
+    "form-data": "^4.0.0"
+  }
+}

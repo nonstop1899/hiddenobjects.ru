@@ -1,0 +1,51 @@
+{
+  "version": 2,
+  "name": "hog-ai-proxy",
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/health",
+      "dest": "/api/health.js"
+    },
+    {
+      "src": "/api/kandinsky/generate",
+      "dest": "/api/kandinsky/generate.js"
+    },
+    {
+      "src": "/api/kandinsky/status/(.*)",
+      "dest": "/api/kandinsky/status/[uuid].js?uuid=$1"
+    },
+    {
+      "src": "/api/gigachat/token",
+      "dest": "/api/gigachat/token.js"
+    },
+    {
+      "src": "/api/gigachat/generate",
+      "dest": "/api/gigachat/generate.js"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, POST, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Authorization, X-Key, X-Secret"
+        }
+      ]
+    }
+  ]
+}
